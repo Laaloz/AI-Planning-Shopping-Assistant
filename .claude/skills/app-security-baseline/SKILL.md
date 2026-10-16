@@ -82,7 +82,7 @@ Also:
 Random 128-bit tokens stored hashed, read-only view, revocable and expiring, `noindex`, and no owner PII in the shared view.
 
 ## 10. Dependencies and supply chain
-- pnpm 10 pinned in `packageManager`, with a committed lockfile. Keep `minimumReleaseAge`, `trustPolicy: no-downgrade`, `blockExoticSubdeps` and `strictDepBuilds` in `pnpm-workspace.yaml`; allow install scripts only for vetted packages via `onlyBuiltDependencies`. Exceptions in `minimumReleaseAgeExclude` name exact versions, say why, and are removed once the version has aged.
+- pnpm 12 pinned in `packageManager` (ADR-0003), with a committed lockfile. Keep `minimumReleaseAge`, `trustPolicy: no-downgrade`, `blockExoticSubdeps` and `strictDepBuilds` in `pnpm-workspace.yaml`; allow install scripts only for vetted packages via `allowBuilds`. Exceptions in `minimumReleaseAgeExclude` name exact versions, say why, and are removed once the version has aged.
 - Adding a dependency is a decision: check maintenance, adoption and provenance, and whether 20 lines of our own code would do.
 - Apply Next.js, React and Hono security releases within 48 hours. React2Shell (CVE-2025-55182) was an unauthenticated CVSS 10 RCE in React Server Components.
 - Dependabot with a cooldown at least as long as `minimumReleaseAge`. GitHub Actions are pinned to commit SHAs.

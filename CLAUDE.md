@@ -29,7 +29,7 @@ Apps import packages from their compiled `dist/`. Root scripts build the package
 
 ## Stack
 
-Node 24 LTS (22.12+ works) · pnpm 10.34 (pinned in `packageManager`) · TypeScript 5.9 strict · Next.js 16.4 (App Router, Cache Components, Turbopack) · React 19.3 · Tailwind CSS 4 · Hono 4 · Zod 4 · Supabase (Auth, Postgres 17 + RLS, Storage) in eu-west-1 · Vitest 5 + fast-check · Vercel with functions in `dub1`. Added during Phase 0: shadcn/ui, next-intl (fi default, en), `@supabase/ssr`, Drizzle ORM, Playwright + axe. Phase 1: Vercel AI SDK with Claude.
+Node 24 LTS (22.12+ works) · pnpm 12 (pinned in `packageManager`, ADR-0003) · TypeScript 5.9 strict · Next.js 16.4 (App Router, Cache Components, Turbopack) · React 19.3 · Tailwind CSS 4 · Hono 4 · Zod 4 · Supabase (Auth, Postgres 17 + RLS, Storage) in eu-west-1 · Vitest 5 + fast-check · Vercel with functions in `dub1`. Added during Phase 0: shadcn/ui, next-intl (fi default, en), `@supabase/ssr`, Drizzle ORM, Playwright + axe. Phase 1: Vercel AI SDK with Claude.
 
 ## Commands (from the repo root)
 

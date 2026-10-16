@@ -19,7 +19,7 @@ flowchart LR
 - **`apps/backend`** verifies access tokens, runs the plan engine, calls the model and reads and writes data under row-level security.
 - **`packages/contracts`** holds the Zod schemas for every API request and response; **`packages/domain`** holds the pure plan logic. Both apps use them.
 
-Why the split and which alternatives were considered: [ADR-0001](docs/adr/0001-monorepo-and-stack.md). Accounts and model billing: [ADR-0002](docs/adr/0002-auth-and-model-billing.md).
+Why the split and which alternatives were considered: [ADR-0001](docs/adr/0001-monorepo-and-stack.md). Accounts and model billing: [ADR-0002](docs/adr/0002-auth-and-model-billing.md). Package manager: [ADR-0003](docs/adr/0003-pnpm-12.md).
 
 ## Getting started
 
@@ -55,6 +55,8 @@ Two Vercel projects from this repository, both with functions in `dub1` (Dublin,
 | -------- | --------------- | ------------------------------------------------------------------ |
 | backend  | `apps/backend`  | `SUPABASE_URL`, `SUPABASE_PUBLISHABLE_KEY`, `ALLOWED_ORIGINS`      |
 | frontend | `apps/frontend` | `BACKEND_URL` (the backend deployment's URL, needed at build time) |
+
+Set `ENABLE_EXPERIMENTAL_COREPACK=1` on both projects so Vercel uses the pnpm version pinned in `package.json` (ADR-0003).
 
 Each `vercel.json` builds the workspace packages before the app. Nothing is deployed yet; the first deployment verifies this setup.
 
