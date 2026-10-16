@@ -45,3 +45,5 @@ ignoredBuiltDependencies:
 allowBuilds:
   esbuild: false
   unrs-resolver: false
+  "@parcel/watcher": false
+  "@swc/core": false

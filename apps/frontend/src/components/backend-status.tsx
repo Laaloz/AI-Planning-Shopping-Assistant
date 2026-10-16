@@ -1,15 +1,10 @@
 "use client";
 
 import { HealthResponseSchema } from "@app/contracts";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
 type Status = "checking" | "ok" | "unavailable";
-
-const LABELS: Record<Status, string> = {
-  checking: "Tarkistetaan yhteyttä taustapalveluun…",
-  ok: "Taustapalvelu vastaa.",
-  unavailable: "Taustapalveluun ei saada yhteyttä.",
-};
 
 const DOT_CLASSES: Record<Status, string> = {
   checking: "bg-muted-foreground",
@@ -19,6 +14,7 @@ const DOT_CLASSES: Record<Status, string> = {
 
 /** Shows whether the backend answers through the /api rewrite. The text carries the meaning. */
 export function BackendStatus() {
+  const t = useTranslations("BackendStatus");
   const [status, setStatus] = useState<Status>("checking");
 
   useEffect(() => {
@@ -39,7 +35,7 @@ export function BackendStatus() {
   return (
     <p role="status" className="flex items-center gap-2 text-sm text-muted-foreground">
       <span aria-hidden="true" className={`size-2 shrink-0 rounded-full ${DOT_CLASSES[status]}`} />
-      {LABELS[status]}
+      {t(status)}
     </p>
   );
 }
