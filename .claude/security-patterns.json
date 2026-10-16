@@ -1,0 +1,56 @@
+{
+  "patterns": [
+    {
+      "rule_name": "secret_in_public_env",
+      "regex": "NEXT_PUBLIC_[A-Z0-9_]*(SECRET|SERVICE_ROLE|PRIVATE|ANTHROPIC|OPENAI)",
+      "reminder": "NEXT_PUBLIC_* variables are bundled into browser code. Never put secret keys, service-role keys or LLM API keys in them."
+    },
+    {
+      "rule_name": "hardcoded_secret_prefix",
+      "substrings": ["sk-ant-", "sb_secret_", "sk_live_"],
+      "exclude_paths": ["**/.claude/**", "**/docs/**"],
+      "reminder": "This looks like a hardcoded secret key. Read it from a backend environment variable validated in apps/backend/src/env.ts."
+    },
+    {
+      "rule_name": "supabase_getsession_on_server",
+      "substrings": ["auth.getSession("],
+      "paths": ["**/apps/backend/**", "**/apps/frontend/src/app/**", "**/proxy.ts"],
+      "reminder": "Never trust supabase.auth.getSession() in server code. Use supabase.auth.getClaims(), or getUser() when a fresh user record is needed."
+    },
+    {
+      "rule_name": "admin_db_on_request_path",
+      "substrings": ["db/admin", "adminDb"],
+      "paths": [
+        "**/apps/backend/src/routes/**",
+        "**/apps/backend/src/plan/**",
+        "**/apps/backend/src/auth/**",
+        "**/apps/backend/src/ai/**",
+        "**/apps/frontend/**",
+        "**/packages/**"
+      ],
+      "reminder": "adminDb bypasses Row Level Security. Use withRls() for user-scoped queries; adminDb is only for migrations, seeds and apps/backend/src/jobs/**."
+    },
+    {
+      "rule_name": "server_action_in_frontend",
+      "substrings": ["\"use server\"", "'use server'"],
+      "paths": ["**/apps/frontend/**"],
+      "reminder": "App data goes through the backend API (/api rewrite), not Next.js Server Actions. A Server Action is a public POST endpoint; if one is truly needed, it must validate input, authenticate and authorize like a backend route."
+    },
+    {
+      "rule_name": "cors_wildcard",
+      "regex": "origin:\\s*[\"']\\*[\"']",
+      "paths": ["**/apps/backend/**"],
+      "reminder": "CORS must use the ALLOWED_ORIGINS allowlist, never '*'."
+    },
+    {
+      "rule_name": "raw_sql",
+      "regex": "sql\\.raw\\(",
+      "reminder": "sql.raw() skips parameterisation. Use bound parameters; only whitelisted identifiers may ever be raw."
+    },
+    {
+      "rule_name": "rls_disabled",
+      "regex": "(?i)disable\\s+row\\s+level\\s+security",
+      "reminder": "Disabling RLS exposes the table to every user through the Data API. Keep RLS enabled and write policies instead."
+    }
+  ]
+}

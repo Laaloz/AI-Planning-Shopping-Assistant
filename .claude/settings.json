@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(pnpm lint *)",
+      "Bash(pnpm typecheck *)",
+      "Bash(pnpm test *)",
+      "Bash(pnpm build *)",
+      "Bash(pnpm build:packages *)",
+      "Bash(pnpm format *)",
+      "Bash(pnpm format:check *)",
+      "Bash(pnpm check *)",
+      "Bash(pnpm test:db *)",
+      "Bash(pnpm test:e2e *)",
+      "Bash(pnpm db:generate *)",
+      "Bash(pnpm --filter @app/frontend lint *)",
+      "Bash(pnpm --filter @app/frontend typecheck *)",
+      "Bash(pnpm --filter @app/frontend build *)",
+      "Bash(pnpm --filter @app/backend lint *)",
+      "Bash(pnpm --filter @app/backend typecheck *)",
+      "Bash(pnpm --filter @app/backend test *)",
+      "Bash(pnpm --filter @app/contracts lint *)",
+      "Bash(pnpm --filter @app/contracts typecheck *)",
+      "Bash(pnpm --filter @app/contracts test *)",
+      "Bash(pnpm --filter @app/domain lint *)",
+      "Bash(pnpm --filter @app/domain typecheck *)",
+      "Bash(pnpm --filter @app/domain test *)",
+      "Bash(pnpm exec vitest *)",
+      "Bash(pnpm exec playwright test *)"
+    ],
+    "ask": [
+      "Bash(git push *)",
+      "Bash(pnpm add *)",
+      "Bash(pnpm * add *)",
+      "Bash(pnpm remove *)",
+      "Bash(pnpm * remove *)",
+      "Bash(pnpm update *)",
+      "Bash(pnpm * update *)",
+      "Bash(pnpm dlx *)",
+      "Bash(npx *)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(supabase db push *)",
+      "Bash(supabase db reset *)",
+      "Bash(supabase link *)",
+      "Bash(supabase config push *)",
+      "Bash(vercel *)"
+    ],
+    "deny": [
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(!.env.example)",
+      "Read(**/*.pem)",
+      "Read(**/*.p12)",
+      "Bash(git push --force *)",
+      "Bash(git push -f *)",
+      "Bash(supabase db reset --linked *)",
+      "Bash(supabase projects delete *)",
+      "Bash(vercel --prod *)",
+      "Bash(vercel deploy --prod *)"
+    ]
+  },
+  "enabledPlugins": {
+    "security-guidance@claude-plugins-official": true
+  }
+}
