@@ -1,0 +1,34 @@
+{
+  "name": "@app/backend",
+  "version": "0.0.0",
+  "private": true,
+  "description": "HTTP API: authentication, the live plan engine, AI orchestration and data access.",
+  "type": "module",
+  "engines": {
+    "node": "^22.12.0 || ^24.0.0"
+  },
+  "scripts": {
+    "dev": "tsx watch src/dev.ts",
+    "build": "tsc --noEmit",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@app/contracts": "workspace:*",
+    "@supabase/supabase-js": "^2.117.0",
+    "hono": "^4.13.13",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@eslint/js": "catalog:",
+    "@hono/node-server": "^2.1.5",
+    "@types/node": "catalog:",
+    "eslint": "catalog:",
+    "globals": "catalog:",
+    "tsx": "^4.23.15",
+    "typescript": "catalog:",
+    "typescript-eslint": "catalog:",
+    "vitest": "catalog:"
+  }
+}
