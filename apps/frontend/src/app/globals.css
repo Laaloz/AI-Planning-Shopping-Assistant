@@ -1,23 +1,132 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
+/* Dark mode follows the operating system; there is no manual toggle yet. */
+@custom-variant dark (@media (prefers-color-scheme: dark));
+
+/*
+ * Design tokens. Colours are OKLCH. Pairings were checked against WCAG 2.2 AA:
+ * text >= 4.5:1, borders of form controls, focus ring and icons >= 3:1.
+ * Status colours (success, warning, info, destructive) are always shown with an icon and text,
+ * never as colour alone.
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.5 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.505 0.213 27.5);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.55 0 0);
+  --ring: oklch(0.5 0 0);
+
+  --success: oklch(0.42 0.11 150);
+  --success-surface: oklch(0.96 0.04 150);
+  --warning: oklch(0.45 0.1 70);
+  --warning-surface: oklch(0.97 0.05 90);
+  --info: oklch(0.42 0.14 255);
+  --info-surface: oklch(0.96 0.03 250);
+
+  --radius: 0.625rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.72 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.72 0.17 22);
+    --border: oklch(1 0 0 / 15%);
+    --input: oklch(0.6 0 0);
+    --ring: oklch(0.708 0 0);
+
+    --success: oklch(0.85 0.13 150);
+    --success-surface: oklch(0.26 0.06 150);
+    --warning: oklch(0.87 0.12 85);
+    --warning-surface: oklch(0.28 0.06 80);
+    --info: oklch(0.85 0.09 250);
+    --info-surface: oklch(0.27 0.07 255);
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-success-surface: var(--success-surface);
+  --color-warning: var(--warning);
+  --color-warning-surface: var(--warning-surface);
+  --color-info: var(--info);
+  --color-info-surface: var(--info-surface);
+
+  --font-heading: var(--font-sans);
+  --font-sans: var(--font-sans);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-border outline-ring;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
+/* No non-essential motion for people who ask for less (WCAG 2.3.3, best practice). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
