@@ -1,6 +1,6 @@
 # ADR-0001: Monorepo with a separate Next.js frontend and Hono backend
 
-- Status: Accepted
+- Status: Accepted (the pnpm version is superseded by ADR-0003)
 - Date: 2026-10-16
 - Deciders: @Laaloz
 
