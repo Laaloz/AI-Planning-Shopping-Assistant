@@ -1,0 +1,2 @@
+-- Local seed data for `supabase db reset`.
+-- Keep it free of real personal data. The mock product catalog is seeded here in Phase 1.

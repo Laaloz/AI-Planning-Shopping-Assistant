@@ -1,0 +1,44 @@
+packages:
+  - apps/*
+  - packages/*
+
+# Shared versions for tools and libraries used by more than one package.
+# Reference them from package.json as "catalog:".
+catalog:
+  "@eslint/js": ^9.39.4
+  "@types/node": ^22.20.5
+  eslint: ^9.39.4
+  fast-check: ^4.10.2
+  globals: ^17.0.0
+  typescript: ^5.9.3
+  typescript-eslint: ^8.71.2
+  vitest: ^5.0.4
+  zod: ^4.6.7
+
+# --- Supply-chain hardening (docs/adr/0001-monorepo-and-stack.md) ---
+
+# Never resolve a version that was published less than 24 hours ago.
+minimumReleaseAge: 1440
+minimumReleaseAgeExclude:
+  # Next.js 16.4.2 was published on 2026-10-15 at 20:57 UTC and was explicitly requested.
+  # Its @next/* packages are pinned exactly by next itself. Remove these entries after 2026-10-17.
+  - next@16.4.2
+  - eslint-config-next@16.4.2
+  - "@next/*"
+
+# Fail the install if a package's trust level (for example provenance) drops between releases.
+# Only versions published in the last 30 days are checked: takeovers are usually caught within
+# days, and older releases such as undici-types@6.21.0 (2024) predate consistent provenance.
+trustPolicy: no-downgrade
+trustPolicyIgnoreAfter: 43200
+
+# Only direct dependencies may come from git repositories or tarball URLs.
+blockExoticSubdeps: true
+
+# Dependency install scripts are blocked by default. Review a package before allowing it here.
+strictDepBuilds: true
+onlyBuiltDependencies: []
+ignoredBuiltDependencies:
+  - esbuild
+  - sharp
+  - unrs-resolver

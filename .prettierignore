@@ -1,0 +1,13 @@
+pnpm-lock.yaml
+**/dist/
+**/.next/
+**/coverage/
+**/next-env.d.ts
+supabase/.temp/
+
+# Instructions for Claude Code stay compact (no padded tables) and are reviewed by hand.
+# This also keeps the vendored Supabase skills byte-for-byte identical to upstream.
+.claude/
+CLAUDE.md
+**/CLAUDE.md
+**/AGENTS.md
