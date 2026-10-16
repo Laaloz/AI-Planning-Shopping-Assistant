@@ -12,9 +12,9 @@ const LABELS: Record<Status, string> = {
 };
 
 const DOT_CLASSES: Record<Status, string> = {
-  checking: "bg-zinc-400",
-  ok: "bg-emerald-600",
-  unavailable: "bg-red-600",
+  checking: "bg-muted-foreground",
+  ok: "bg-success",
+  unavailable: "bg-destructive",
 };
 
 /** Shows whether the backend answers through the /api rewrite. The text carries the meaning. */
@@ -37,7 +37,7 @@ export function BackendStatus() {
   }, []);
 
   return (
-    <p role="status" className="flex items-center gap-2 text-sm text-zinc-700 dark:text-zinc-300">
+    <p role="status" className="flex items-center gap-2 text-sm text-muted-foreground">
       <span aria-hidden="true" className={`size-2 shrink-0 rounded-full ${DOT_CLASSES[status]}`} />
       {LABELS[status]}
     </p>
