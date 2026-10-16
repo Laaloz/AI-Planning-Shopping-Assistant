@@ -1,0 +1,15 @@
+{
+  "Metadata": {
+    "title": "AI Planning & Shopping Assistant",
+    "description": "Describe what you need and the assistant builds an editable plan: components, budget and suitable products."
+  },
+  "Home": {
+    "badge": "Development build",
+    "intro": "Tell us what you are buying or building. The assistant asks only the questions that matter and builds an editable plan: components, budget and suitable products, new or used."
+  },
+  "BackendStatus": {
+    "checking": "Checking the connection to the backend…",
+    "ok": "The backend is responding.",
+    "unavailable": "Cannot reach the backend."
+  }
+}

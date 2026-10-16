@@ -1,0 +1,15 @@
+{
+  "Metadata": {
+    "title": "AI Planning & Shopping Assistant",
+    "description": "Kerro tarpeesi, niin avustaja kokoaa siitä muokattavan suunnitelman: osat, budjetin ja sopivat tuotteet."
+  },
+  "Home": {
+    "badge": "Kehitysversio",
+    "intro": "Kerro, mitä olet hankkimassa tai rakentamassa. Avustaja kysyy olennaiset tarkennukset ja kokoaa muokattavan suunnitelman: osat, budjetin ja sopivat tuotteet uutena tai käytettynä."
+  },
+  "BackendStatus": {
+    "checking": "Tarkistetaan yhteyttä taustapalveluun…",
+    "ok": "Taustapalvelu vastaa.",
+    "unavailable": "Taustapalveluun ei saada yhteyttä."
+  }
+}
