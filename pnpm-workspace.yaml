@@ -12,7 +12,7 @@ catalog:
   globals: ^17.0.0
   typescript: ^5.9.3
   typescript-eslint: ^8.71.2
-  vitest: ^5.0.4
+  vitest: ^5.0.5
   zod: ^4.6.7
 
 # --- Supply-chain hardening (docs/adr/0001-monorepo-and-stack.md) ---
