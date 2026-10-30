@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@app/contracts": "workspace:*",
-    "@supabase/supabase-js": "^2.117.0",
+    "@supabase/supabase-js": "^2.118.0",
     "hono": "^4.13.13",
     "zod": "catalog:"
   },
