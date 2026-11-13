@@ -16,13 +16,13 @@
   },
   "dependencies": {
     "@app/contracts": "workspace:*",
-    "@supabase/supabase-js": "^2.117.0",
-    "hono": "^4.13.13",
+    "@supabase/supabase-js": "^2.119.0",
+    "hono": "^4.13.16",
     "zod": "catalog:"
   },
   "devDependencies": {
     "@eslint/js": "catalog:",
-    "@hono/node-server": "^2.1.5",
+    "@hono/node-server": "^2.1.6",
     "@types/node": "catalog:",
     "eslint": "catalog:",
     "globals": "catalog:",
