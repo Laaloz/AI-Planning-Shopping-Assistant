@@ -9,10 +9,10 @@ catalog:
   "@types/node": ^22.20.5
   eslint: ^9.39.4
   fast-check: ^4.10.2
-  globals: ^17.0.0
+  globals: ^17.14.0
   typescript: ^5.9.3
-  typescript-eslint: ^8.71.2
-  vitest: ^5.0.4
+  typescript-eslint: ^8.72.1
+  vitest: ^5.1.0
   zod: ^4.6.7
 
 # --- Supply-chain hardening (docs/adr/0001-monorepo-and-stack.md) ---
